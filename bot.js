@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 // Префикс для бота
 const config = require('./config.json');
-const availableVariables = ['site_url', 'ts3_url', 'prefix', 'youtube_url', 'steam_link'];
+const availableVariables = ['site_url', 'ts3_url', 'config.prefix', 'youtube_url', 'steam_link'];
 
 client.on('ready', () => {
   console.log('Бот загружен!');
@@ -17,7 +17,7 @@ client.on('guildMemberAdd', (member) => {
 // Выводим адрес сайта в чат
 client.on('message', message => {
   if (message.author === client.user) return;
-  if (message.content.startsWith(prefix + 'site')) {
+  if (message.content.startsWith(config.prefix + 'site')) {
     message.channel.send({
       embed: {
         color: 3447003,
@@ -30,7 +30,7 @@ client.on('message', message => {
 // Выводим раздел помощи в чат
 client.on('message', message => {
   if (message.author === client.user) return;
-  if (message.content.startsWith(prefix + 'help')) {
+  if (message.content.startsWith(config.prefix + 'help')) {
     message.channel.send({
       embed: {
         color: 3447003,
@@ -43,7 +43,7 @@ client.on('message', message => {
 // Выводим полезные ссылки в чат
 client.on('message', message => {
   if (message.author === client.user) return;
-  if (message.content.startsWith(prefix + 'info')) {
+  if (message.content.startsWith(config.prefix + 'info')) {
     message.channel.send({
       embed: {
         color: 3447003,
@@ -80,7 +80,7 @@ client.on('message', message => {
 // Отображаем администраторов сервера
 client.on('message', message => {
   if (message.author === client.user) return;
-  if (message.content.startsWith(prefix + 'admins')) {
+  if (message.content.startsWith(config.prefix + 'admins')) {
     message.channel.send({
       embed: {
         color: 3447003,
@@ -93,8 +93,8 @@ client.on('message', message => {
 // Пытаемся вернуть значение пинга
 client.on('message', message => {
   if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-  if (message.content.startsWith(prefix + 'ping')) {
+  if (!message.content.startsWith(config.prefix)) return;
+  if (message.content.startsWith(config.prefix + 'ping')) {
     message.channel.send({
       embed: {
         color: 3447003,
@@ -107,7 +107,7 @@ client.on('message', message => {
 // Выводим аватар и ссылку в чат
 client.on('message', message => {
   if (message.author === client.user) return;
-  if (message.content.startsWith(prefix + 'avatar')) {
+  if (message.content.startsWith(config.prefix + 'avatar')) {
     // Выводим URL аватара в чат
     message.reply(message.author.avatarURL);
   }
