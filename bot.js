@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 // Префикс для бота
 const config = require('./config.json');
-const availableVariables = ['site_url', 'ts3_url', 'config.prefix', 'youtube_url', 'steam_link'];
+const availableVariables = ['site_url', 'ts3_url', 'prefix', 'youtube_url', 'steam_link'];
 
 client.on('ready', () => {
   console.log('Бот загружен!');
