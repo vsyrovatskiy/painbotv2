@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Префикс для бота
-var prefix = '#'
+var prefix = config.prefix;
+const config = require('./config.json');
+const availableVariables = ['site_url', 'ts3_url', 'prefix', 'youtube_url', 'steam_link'];
 
 client.on('ready', () => {
   console.log('Бот загружен!');
